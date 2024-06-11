@@ -18,7 +18,7 @@ class Calculator:
 
     def power(self, a, b):
         # Implement the ** operator here
-        return 1
+        return a ** b
 
 
 def main():
