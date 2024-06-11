@@ -14,7 +14,13 @@ class Calculator:
         return a * b
 
     def divide(self, a, b):
+        if b == 0:
+            return "Error: Division by zero is not allowed."
         return a / b
+
+    def power(self, a, b):
+        # Implement the ** operator here
+        return a ** b
 
 
 def main():
@@ -25,11 +31,12 @@ def main():
         print("2. Subtract")
         print("3. Multiply")
         print("4. Divide")
-        print("5. Quit")
+        print("5. Power")
+        print("6. Quit")
 
         choice = input("Enter your choice (1-5): ")
 
-        if choice in ("1", "2", "3", "4"):
+        if choice in ("1", "2", "3", "4", "5"):
             a = float(input("Enter the first number: "))
             b = float(input("Enter the second number: "))
             if choice == "1":
@@ -40,8 +47,10 @@ def main():
                 result = calculator.multiply(a, b)
             elif choice == "4":
                 result = calculator.divide(a, b)
-            print(f"{a} {['+', '-', '*', '/'][int(choice)-1]} {b} = {result}")
-        elif choice == "5":
+            elif choice == "5":
+                result = calculator.power(a, b)
+            print(f"{a} {['+', '-', '*', '/', '^'][int(choice)-1]} {b} = {result}")
+        elif choice == "6":
             break
         else:
             print("Invalid choice. Please try again.")
